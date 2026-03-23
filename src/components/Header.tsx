@@ -28,39 +28,40 @@ export default function Header() {
         {/* Items texte — masqués sur xs, visibles dès sm */}
         <div className="hidden sm:flex items-center gap-6">
           {topBar.items.map((item, i) => (
-            <span key={i} className="flex items-center gap-1.5 text-[13px] font-medium whitespace-nowrap">
-              {item.highlight ? (
-                <span
-                  className="px-2 py-0.5 rounded-[4px]"
-                  style={{
-                    fontFamily: fonts.body,
-                    fontWeight: item.textBold ? 700 : 600,
-                    backgroundColor: item.highlightColor || "transparent",
-                    color: item.highlightColor ? "#000" : "inherit",
-                    textDecoration: item.removeUnderline ? "none" : "none",
-                  }}
-                >
-                  {item.text}
-                </span>
-              ) : (
-                <span style={{ fontWeight: item.textBold ? 700 : 500 }}>
-                  {item.text}{" "}
-                  {item.bold && (
-                    <strong
-                      className="px-2 py-0.5 rounded-[4px]"
-                      style={{
-                        fontWeight: 700,
-                        fontFamily: fonts.body,
-                        backgroundColor: "#FFFFFF",
-                        color: "#000",
-                      }}
-                    >
-                      {item.bold}
-                    </strong>
-                  )}
-                </span>
-              )}
-            </span>
+            <div key={i} className="flex items-center gap-2">
+              <span className="text-[14px] font-bold" style={{ fontFamily: fonts.body, color: "#111" }}>
+                {item.text}
+              </span>
+              
+              <div
+                className="bg-white rounded-[6px] px-2.5 py-0.5 flex items-center justify-center"
+                style={{
+                  minHeight: "28px",
+                  boxShadow: "0 1px 2px rgba(0,0,0,0.05)"
+                }}
+              >
+                {item.isSecondType ? (
+                  <span
+                    className="text-[14px]"
+                    style={{
+                      fontFamily: fonts.heading,
+                      fontStyle: "italic",
+                      fontWeight: 500,
+                      color: "#111"
+                    }}
+                  >
+                    {item.bold}
+                  </span>
+                ) : (
+                  <span
+                    className="text-[18px] font-extrabold leading-none tracking-tight"
+                    style={{ fontFamily: fonts.body, color: "#111" }}
+                  >
+                    {item.bold}
+                  </span>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </div>

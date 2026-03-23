@@ -39,9 +39,16 @@ export const headerConfig = {
       textColor: theme.white,
     },
     items: [
-      { text: "Reste à charge", bold: "0€", highlight: true, textBold: true, highlightColor: "#FFFFFF" },
-      { text: "Retour sur investissement", bold: "", highlight: false, textBold: true },
-      { text: "Immédiat dès l'installation", bold: "", highlight: true, textBold: false, highlightColor: "#FFFFFF", removeUnderline: true },
+      { 
+        text: "Reste à charge", 
+        bold: "0€", 
+        isSecondType: false 
+      },
+      { 
+        text: "Retour sur investissement", 
+        bold: "Immédiat dès l'installation", 
+        isSecondType: true 
+      },
     ],
     textColor: theme.black,
   },
